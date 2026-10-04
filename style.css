@@ -1,0 +1,285 @@
+  /* =============== YOUR EXISTING CSS =============== */
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background: linear-gradient(135deg, #2980b9 0%, #2c3e50 100%);
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            transition: background-image .5s ease-in-out;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, .96);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+            width: 350px;
+            max-width: 90%;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo-image {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 10px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-image img {
+            max-width: 100%;
+            max-height: 100%
+        }
+
+        .logo-text {
+            margin: 0;
+            color: #333
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold
+        }
+
+        .form-group input[type=email],
+        .form-group input[type=password] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[readonly] {
+            background: #eee;
+            cursor: not-allowed
+        }
+
+        button[type=submit] {
+            width: 100%;
+            padding: 10px;
+            background: #5cb85c;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background .3s;
+        }
+
+        button[type=submit]:hover:not(:disabled) {
+            background: #4cae4c
+        }
+
+        button[type=submit]:disabled {
+            background: #a0a0a0;
+            cursor: not-allowed;
+        }
+
+        .message {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+            font-size: .9em;
+            line-height: 1.4;
+        }
+
+        .message.visible {
+            display: block
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .message.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+
+        .message.warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .domain-info {
+            margin-top: 15px;
+            font-size: .9em;
+            color: #666;
+            text-align: left;
+            line-height: 1.4;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, .3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+            visibility: hidden;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .password-placeholder {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background: #f5f5f5;
+            color: #999;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .refresh-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255, 255, 255, .7);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background .3s;
+        }
+
+        .refresh-button:hover {
+            background: rgba(255, 255, 255, .9)
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: .3s;
+            z-index: 1000;
+        }
+
+        .loading-overlay.active {
+            opacity: 1;
+            visibility: visible
+        }
+
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid rgba(255, 255, 255, .3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s linear infinite;
+        }
+
+        .loading-text {
+            color: #fff;
+            margin-top: 20px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* ─── Landing overlay CSS ───────────────────────── */
+        #landingOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(240, 240, 240, .95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        #landingContent {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+            text-align: center;
+            max-width: 90%;
+        }
+
+        #landingContent img {
+            max-width: 80px;
+            margin-bottom: 15px
+        }
+
+        #landingContent h1 {
+            margin: 0 0 10px;
+            font-size: 1.5em
+        }
+
+        #landingContent p {
+            margin: 0 0 20px;
+            color: #666
+        }
+
+        #landingContent button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background: #5cb85c;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #landingContent button:hover {
+            background: #4cae4c
+        }
